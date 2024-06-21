@@ -8,13 +8,14 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 const passport=require('passport')
 const session=require('express-session')
 const axios=require('axios')
+require('dotenv').config()
 
 const connectDB = require("./connectDB");
 const Invoice = require('./models/Invioces');
 // const { postingInvoice } = require('./zapier');
 
-const ACCESS_TOKEN = '3729794.pt.--fvGodxWCOeDbpXzwAVUiBG-fuKeq5iLCSqfdBk9WlegGeMBoODEbzjPZ8YGUfNBhQH30xvUszGYdORwSfw9Q';
-        const ACCOUNT_ID = '1867387';
+const ACCESS_TOKEN =process.env.ACCESS_TOKENS;
+        const ACCOUNT_ID = process.env.ACCOUNT_IDS;
 
         let user
 function isLoggedIn(req, res, next){
